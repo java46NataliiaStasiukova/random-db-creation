@@ -26,7 +26,8 @@ public class RandomDbCreation {
 	String ddlAutoProp;
 	@Value("${app.visits.amount:20}")
 	private int nVisits;
-	private int nDays = 35;
+	@Value("${app.days.amount:35}")
+	private int nDays;
 	
 	String patientNames[] = {"Abraham", "Sarah",
 			"Itshak", "Rahel", "Asaf", "Yacob", "Rivka",
@@ -34,20 +35,16 @@ public class RandomDbCreation {
 	String doctorNames[] = {"Ruben", "Moshe",
 			"Aron", "Yehashua", "David", "Salomon",
 			"Nefertity", "Naftaly", "Natan", "Asher"};
-//	String dates[] = {"2023-03-01", "2023-03-02",
-//			"2023-03-03", "2023-03-04", "2023-03-05", "2023-03-06",
-//			"2023-03-07", "2023-03-08", "2023-03-09", "2023-03-10"};
-	
-	
+
 	@PostConstruct
 	void createDB() {
 		if(ddlAutoProp.equals("create")) {
 			addPatients();
 			addDoctors();
 			addVisits();
-			LOG.info("new DB was created with visits: {}", nVisits);
+			LOG.info("*random db* new DB was created with visits: {}", nVisits);
 		} else {
-			LOG.warn("new db was not created");
+			LOG.warn("*random db* new db was not created");
 		}
 	}
 	

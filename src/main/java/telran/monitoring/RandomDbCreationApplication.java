@@ -15,7 +15,7 @@ public class RandomDbCreationApplication {
 	
 	@PreDestroy
 	void preDestroy() {
-		System.out.println("bye - shutdown has been performed");
+		System.out.println("RandomDbCreation - shutdown has been performed");
 	}
 
 }
